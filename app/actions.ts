@@ -320,10 +320,10 @@ export async function generateAiEmail(formData: FormData) {
     const response = await result.response;
     const text = response.text();
     
-    console.log("✅ AI Success");
+    console.log("AI Success");
     return { success: text };
   } catch (error: any) {
-    console.error("❌ AI Error Full Details:", error);
+    console.error("AI Error Full Details:", error);
     // Print the available models if possible to debug
     return { error: `AI Failed: ${error.message}` };
   }
@@ -341,4 +341,27 @@ export async function downgradeToFree() {
 
   revalidatePath("/dashboard");
   revalidatePath("/dashboard/settings/billing");
+}
+
+export async function updateUserProfile(formData: FormData) {
+  const { userId } = await auth();
+  if (!userId) return;
+
+  const name = formData.get("name") as string;
+  const phone = formData.get("phone") as string;
+  const birthDateString = formData.get("birthDate") as string;
+
+  // Convert date string (YYYY-MM-DD) to Date object, or null if empty
+  const birthDate = birthDateString ? new Date(birthDateString) : null;
+
+  await db.userProfile.update({
+    where: { userId },
+    data: {
+      name,
+      phone,
+      birthDate,
+    },
+  });
+
+  revalidatePath("/dashboard/settings");
 }

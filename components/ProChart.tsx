@@ -7,7 +7,6 @@ import Link from "next/link";
 
 export function ProChart({ isPro }: { isPro: boolean }) {
   if (!isPro) {
-    // BLURRED VERSION FOR FREE USERS
     return (
       <Card className="border-zinc-200 dark:border-zinc-800 relative overflow-hidden">
         <div className="absolute inset-0 bg-white/60 dark:bg-black/60 backdrop-blur-sm z-10 flex flex-col items-center justify-center text-center p-6">
@@ -19,9 +18,7 @@ export function ProChart({ isPro }: { isPro: boolean }) {
             <Link href="/dashboard/settings/billing">
                 <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">Upgrade to Unlock</Button>
             </Link>
-        </div>
-        
-        {/* Fake Background Content */}
+        </div>=
         <CardHeader>
             <CardTitle className="text-zinc-400">Projected Revenue</CardTitle>
         </CardHeader>
@@ -31,8 +28,6 @@ export function ProChart({ isPro }: { isPro: boolean }) {
       </Card>
     );
   }
-
-  // REAL CHART FOR PRO USERS
   return (
     <Card className="border-zinc-200 dark:border-zinc-800">
         <CardHeader>

@@ -7,8 +7,6 @@ export default function DashboardLayout({
   children: ReactNode;
 }) {
   return (
-    // FIX: Added 'bg-zinc-50 dark:bg-zinc-950' to the wrapper
-    // This ensures the WHOLE page background turns black in dark mode
     <div className="flex min-h-screen bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300">
       
       {/* Fixed Sidebar */}

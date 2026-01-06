@@ -8,7 +8,7 @@ export function SecuritySettings() {
 
   return (
     <div className="space-y-6">
-      {/* 1. PASSWORD */}
+      {/*PASSWORD */}
       <div className="flex items-center justify-between pb-4 border-b border-zinc-100 dark:border-zinc-800">
           <div className="space-y-1">
               <p className="font-medium text-zinc-900 dark:text-zinc-200">Password</p>
@@ -23,7 +23,7 @@ export function SecuritySettings() {
           </Button>
       </div>
 
-      {/* 2. TWO FACTOR */}
+      {/*TWO FACTOR */}
       <div className="flex items-center justify-between">
           <div className="space-y-1">
               <p className="font-medium text-zinc-900 dark:text-zinc-200">2-Step Verification</p>

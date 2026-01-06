@@ -31,7 +31,6 @@ export function UpgradeModal() {
     let timeout: NodeJS.Timeout;
     if (step === "PAYMENT" && paymentMethod === "qr") {
         setPaymentStatus("PROCESSING");
-        // Simulate waiting for bank confirmation (3 seconds)
         timeout = setTimeout(() => {
             setPaymentStatus("SUCCESS");
             setTimeout(() => {
@@ -46,7 +45,7 @@ export function UpgradeModal() {
   }, [step, paymentMethod]);
 
   const handleCardPayment = async () => {
-    if (!isFormValid) return; // Stop if invalid
+    if (!isFormValid) return;
 
     setLoading(true)
     await new Promise(resolve => setTimeout(resolve, 2000))
@@ -66,7 +65,7 @@ export function UpgradeModal() {
       <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden bg-zinc-950 border-zinc-800 text-zinc-100">
         <DialogTitle className="sr-only">Upgrade to Pro Plan</DialogTitle>
         
-        {/* STEP 1: PLANS */}
+        {/*PLANS */}
         {step === "PLANS" && (
             <div className="flex flex-col h-full">
                 <div className="p-6 text-center bg-zinc-900/50 border-b border-zinc-800">
@@ -115,7 +114,7 @@ export function UpgradeModal() {
             </div>
         )}
 
-        {/* STEP 2: PAYMENT */}
+        {/*PAYMENT */}
         {step === "PAYMENT" && (
             <div className="flex flex-col h-full">
                  {/* HEADER with FIXED PADDING for Close Button */}

@@ -91,7 +91,6 @@ export function DashboardActions({ data }: DashboardActionsProps) {
         </PopoverContent>
       </Popover>
 
-      {/* EXPORT BUTTON */}
       <Button 
         onClick={handleExport}
         className="bg-zinc-900 text-white hover:bg-zinc-800 shadow-sm dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"

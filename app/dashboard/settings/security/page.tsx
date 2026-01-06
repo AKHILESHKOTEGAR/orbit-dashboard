@@ -3,8 +3,8 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronLeft, Lock, ShieldAlert } from "lucide-react";
-import { SecuritySettings } from "@/components/SecuritySettings"; // <--- Import New Component
-import { DeleteAccountBtn } from "@/components/DeleteAccountBtn"; // <--- We'll create this next
+import { SecuritySettings } from "@/components/SecuritySettings";
+import { DeleteAccountBtn } from "@/components/DeleteAccountBtn"; 
 
 export default async function SecurityPage() {
   const user = await currentUser();
@@ -23,8 +23,6 @@ export default async function SecurityPage() {
         </Link>
         <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">Security</h1>
       </div>
-
-      {/* 1. AUTHENTICATION (Working Buttons) */}
       <Card className="dark:bg-zinc-900 dark:border-zinc-800">
         <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -35,8 +33,6 @@ export default async function SecurityPage() {
             <SecuritySettings /> 
         </CardContent>
       </Card>
-
-      {/* 2. DANGER ZONE (Real Delete) */}
       <Card className="border-red-100 dark:border-red-900/30 dark:bg-red-900/5">
          <CardHeader>
             <CardTitle className="flex items-center gap-2 text-red-600 dark:text-red-500">

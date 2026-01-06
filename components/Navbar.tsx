@@ -10,7 +10,6 @@ import { LayoutDashboard } from "lucide-react";
 
 export function Navbar() {
   return (
-    // CHANGED: Fixed position, Dark background with blur, Dark border
     <nav className="fixed top-0 w-full z-50 border-b border-zinc-800 bg-black/50 backdrop-blur-xl supports-[backdrop-filter]:bg-black/20">
       <div className="flex h-16 items-center px-6 md:px-12 max-w-7xl mx-auto">
         

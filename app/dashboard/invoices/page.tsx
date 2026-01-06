@@ -84,7 +84,6 @@ export default async function InvoicesPage() {
                 <td className="px-6 py-4 text-right">
                     <form action={deleteInvoice}>
                         <input type="hidden" name="id" value={inv.id} />
-                        {/* FIXED: Added aria-label below */}
                         <button 
                             className="text-zinc-400 hover:text-red-600 transition-colors p-2 hover:bg-red-50 rounded-md dark:hover:bg-red-900/20"
                             aria-label="Delete invoice"

@@ -10,12 +10,12 @@ export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
-  // 1. Wait until mounted on client to avoid mismatch
+  //Wait until mounted on client to avoid mismatch
   React.useEffect(() => {
     setMounted(true)
   }, [])
 
-  // 2. Prevent hydration mismatch by rendering a skeleton until mounted
+  //Prevent hydration mismatch by rendering a skeleton until mounted
   if (!mounted) {
     return (
       <div className="flex items-center p-1 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-100 dark:bg-zinc-900">

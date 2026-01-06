@@ -27,7 +27,7 @@ export function DashboardSidebar() {
   return (
     <aside className="w-64 bg-zinc-950 text-white h-screen fixed left-0 top-0 border-r border-zinc-800 hidden md:flex flex-col z-50">
       
-      {/* 1. Logo Section */}
+      {/*Logo Section */}
       <div className="h-16 flex items-center px-6 border-b border-zinc-800">
         <div className="font-bold text-xl tracking-tight flex items-center gap-2">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -37,7 +37,7 @@ export function DashboardSidebar() {
         </div>
       </div>
 
-      {/* 2. Navigation Links */}
+      {/*Navigation Links */}
       <div className="flex-1 py-6 px-3 space-y-1">
         <p className="px-3 text-xs font-semibold text-zinc-500 uppercase mb-2">Menu</p>
         {menuItems.map((item) => {
@@ -56,7 +56,7 @@ export function DashboardSidebar() {
                 isActive 
                   ? "bg-blue-600 text-white shadow-md shadow-blue-900/20" 
                   : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-800"
-                  // ^^^ Changed dark:text-zinc-400 to make it more visible
+                 
               )}
             >
               <item.icon className="w-4 h-4" />

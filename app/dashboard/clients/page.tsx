@@ -9,7 +9,7 @@ import { Search, CalendarDays } from "lucide-react";
 import { NewProjectBtn } from "@/components/NewProjectBtn";
 import { DeleteBtn } from "@/components/DeleteBtn";
 import { deleteClient } from "@/app/actions";
-import { formatCurrency } from "@/lib/utils"; // <--- Import this
+import { formatCurrency } from "@/lib/utils"; 
 
 export default async function ProjectsPage() {
   const { userId } = await auth();

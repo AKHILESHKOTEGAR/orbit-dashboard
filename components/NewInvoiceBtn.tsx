@@ -41,7 +41,7 @@ export function NewInvoiceBtn({ clients }: { clients: ClientProp[] }) {
             <form 
                 action={async (formData) => {
                     await createInvoice(formData);
-                    setIsOpen(false); // <--- FIXED: Changed setOpen to setIsOpen
+                    setIsOpen(false);
                 }} 
                 className="flex flex-col gap-4"
             >
