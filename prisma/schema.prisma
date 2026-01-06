@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model UserProfile {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  name      String?
+  email     String?
+  plan      String   @default("FREE") 
+  currency  String   @default("USD")
+  
+  // --- ADD THESE 3 LINES ---
+  cardLast4 String?  // Stores "4242"
+  cardBrand String?  // Stores "Visa"
+  cardExpiry String? // Stores "12/29"
+  // -------------------------
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Client {
+  id          String   @id @default(uuid())
+  userId      String
+  name        String
+  email       String
+  status      String   @default("LEAD")
+  description String?
+  deadline    DateTime?
+  
+  // NEW FIELDS
+  notes       String?  @db.Text
+  
+  // RELATIONS
+  invoices    Invoice[]
+  reminders   Reminder[] // <--- NEW RELATION
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt // <--- FIXED
+}
+
+model Invoice {
+  id        String   @id @default(uuid())
+  amount    Decimal
+  status    String   @default("PENDING")
+  
+  clientId  String
+  client    Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+// NEW MODEL
+model Reminder {
+  id        String   @id @default(uuid())
+  text      String
+  isDone    Boolean  @default(false)
+  
+  clientId  String
+  client    Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+}
