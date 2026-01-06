@@ -8,7 +8,7 @@ import { UserButton } from "@clerk/nextjs";
 import { ThemeToggle } from "@/components/ThemeToggle"; 
 import { Bell, CreditCard, Globe, Mail, Shield, User, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { CurrencySelector } from "@/components/CurrencySelector"; // <--- IMPORT THE NEW COMPONENT
+import { CurrencySelector } from "@/components/CurrencySelector"; 
 
 export default async function SettingsPage() {
   const { userId } = await auth();
@@ -86,11 +86,13 @@ export default async function SettingsPage() {
                     <div className="grid gap-4 md:grid-cols-2">
                         <div className="space-y-2">
                             <Label>Full Name</Label>
-                            <Input defaultValue={profile?.name} readOnly className="bg-zinc-50 dark:bg-zinc-900 dark:border-zinc-700" />
+                            {/* FIX: Added || "" to handle null values */}
+                            <Input defaultValue={profile?.name || ""} readOnly className="bg-zinc-50 dark:bg-zinc-900 dark:border-zinc-700" />
                         </div>
                         <div className="space-y-2">
                             <Label>Email Address</Label>
-                            <Input defaultValue={profile?.email} readOnly className="bg-zinc-50 dark:bg-zinc-900 dark:border-zinc-700" />
+                            {/* FIX: Added || "" to handle null values */}
+                            <Input defaultValue={profile?.email || ""} readOnly className="bg-zinc-50 dark:bg-zinc-900 dark:border-zinc-700" />
                         </div>
                     </div>
                 </CardContent>
@@ -124,7 +126,6 @@ export default async function SettingsPage() {
                             <p className="text-sm text-zinc-500">Default currency for all dashboards.</p>
                         </div>
                         
-                        {/* THE NEW COMPONENT GOES HERE */}
                         <CurrencySelector defaultValue={profile?.currency || "USD"} />
                         
                     </div>
